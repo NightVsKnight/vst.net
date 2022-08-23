@@ -1,4 +1,4 @@
-﻿using Jacobi.Vst.Host.Interop;
+using Jacobi.Vst.Host.Interop;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -70,13 +70,18 @@ namespace Jacobi.Vst.Samples.Host
             _plugins.Clear();
         }
 
+        private VstPluginContext GetPluginContext(ListViewItem item)
+        {
+            return item.Tag as VstPluginContext;
+        }
+
         private VstPluginContext SelectedPluginContext
         {
             get
             {
                 if (PluginListVw.SelectedItems.Count > 0)
                 {
-                    return (VstPluginContext)PluginListVw.SelectedItems[0].Tag;
+                    return GetPluginContext(PluginListVw.SelectedItems[0]);
                 }
 
                 return null;
@@ -127,12 +132,7 @@ namespace Jacobi.Vst.Samples.Host
 
         private void ViewPluginBtn_Click(object sender, EventArgs e)
         {
-            PluginForm dlg = new PluginForm
-            {
-                PluginContext = SelectedPluginContext
-            };
-
-            dlg.ShowDialog(this);
+            ShowPluginForm(SelectedPluginContext);
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
@@ -147,6 +147,31 @@ namespace Jacobi.Vst.Samples.Host
 
                 FillPluginList();
             }
+        }
+
+        private void PluginListVw_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var isAnyItemSelected = PluginListVw.SelectedItems.Count > 0;
+            ViewPluginBtn.Enabled = isAnyItemSelected;
+            DeleteBtn.Enabled = isAnyItemSelected;
+        }
+
+        private void PluginListVw_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo info = PluginListVw.HitTest(e.X, e.Y);
+            ListViewItem item = info.Item;
+            if (item == null) return;
+            var context = GetPluginContext(item);
+            ShowPluginForm(context);
+        }
+
+        private void ShowPluginForm(VstPluginContext context)
+        {
+            PluginForm dlg = new PluginForm
+            {
+                PluginContext = context
+            };
+            dlg.ShowDialog(this);
         }
     }
 }

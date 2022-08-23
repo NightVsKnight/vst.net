@@ -1,4 +1,4 @@
-﻿namespace Jacobi.Vst.Samples.Host
+namespace Jacobi.Vst.Samples.Host
 {
     partial class MainForm
     {
@@ -47,17 +47,18 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(13, 13);
+            label1.Location = new System.Drawing.Point(15, 15);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(61, 13);
+            label1.Size = new System.Drawing.Size(68, 15);
             label1.TabIndex = 2;
             label1.Text = "Plugin Path";
             // 
             // PluginListVw
             // 
-            this.PluginListVw.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.PluginListVw.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PluginListVw.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.NameHdr,
             this.ProductHdr,
@@ -66,13 +67,16 @@
             this.AssemblyHdr});
             this.PluginListVw.FullRowSelect = true;
             this.PluginListVw.HideSelection = false;
-            this.PluginListVw.Location = new System.Drawing.Point(12, 56);
+            this.PluginListVw.Location = new System.Drawing.Point(14, 65);
+            this.PluginListVw.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PluginListVw.MultiSelect = false;
             this.PluginListVw.Name = "PluginListVw";
-            this.PluginListVw.Size = new System.Drawing.Size(546, 152);
+            this.PluginListVw.Size = new System.Drawing.Size(636, 175);
             this.PluginListVw.TabIndex = 0;
             this.PluginListVw.UseCompatibleStateImageBehavior = false;
             this.PluginListVw.View = System.Windows.Forms.View.Details;
+            this.PluginListVw.SelectedIndexChanged += new System.EventHandler(this.PluginListVw_SelectedIndexChanged);
+            this.PluginListVw.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PluginListVw_MouseDoubleClick);
             // 
             // NameHdr
             // 
@@ -98,24 +102,26 @@
             // 
             // AssemblyHdr
             // 
-            this.AssemblyHdr.Text = "Assemlby";
+            this.AssemblyHdr.Text = "Assembly";
             this.AssemblyHdr.Width = 120;
             // 
             // PluginPathTxt
             // 
-            this.PluginPathTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.PluginPathTxt.Location = new System.Drawing.Point(12, 29);
+            this.PluginPathTxt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PluginPathTxt.Location = new System.Drawing.Point(14, 33);
+            this.PluginPathTxt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PluginPathTxt.Name = "PluginPathTxt";
-            this.PluginPathTxt.Size = new System.Drawing.Size(430, 20);
+            this.PluginPathTxt.Size = new System.Drawing.Size(501, 23);
             this.PluginPathTxt.TabIndex = 1;
             // 
             // BrowseBtn
             // 
             this.BrowseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BrowseBtn.Location = new System.Drawing.Point(448, 27);
+            this.BrowseBtn.Location = new System.Drawing.Point(523, 31);
+            this.BrowseBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BrowseBtn.Name = "BrowseBtn";
-            this.BrowseBtn.Size = new System.Drawing.Size(31, 23);
+            this.BrowseBtn.Size = new System.Drawing.Size(36, 27);
             this.BrowseBtn.TabIndex = 3;
             this.BrowseBtn.Text = "...";
             this.BrowseBtn.UseVisualStyleBackColor = true;
@@ -124,9 +130,10 @@
             // AddBtn
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddBtn.Location = new System.Drawing.Point(485, 27);
+            this.AddBtn.Location = new System.Drawing.Point(566, 31);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(75, 23);
+            this.AddBtn.Size = new System.Drawing.Size(88, 27);
             this.AddBtn.TabIndex = 4;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = true;
@@ -135,9 +142,11 @@
             // DeleteBtn
             // 
             this.DeleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteBtn.Location = new System.Drawing.Point(12, 214);
+            this.DeleteBtn.Enabled = false;
+            this.DeleteBtn.Location = new System.Drawing.Point(14, 247);
+            this.DeleteBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(75, 23);
+            this.DeleteBtn.Size = new System.Drawing.Size(88, 27);
             this.DeleteBtn.TabIndex = 5;
             this.DeleteBtn.Text = "Delete";
             this.DeleteBtn.UseVisualStyleBackColor = true;
@@ -150,9 +159,11 @@
             // ViewPluginBtn
             // 
             this.ViewPluginBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ViewPluginBtn.Location = new System.Drawing.Point(482, 214);
+            this.ViewPluginBtn.Enabled = false;
+            this.ViewPluginBtn.Location = new System.Drawing.Point(562, 247);
+            this.ViewPluginBtn.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ViewPluginBtn.Name = "ViewPluginBtn";
-            this.ViewPluginBtn.Size = new System.Drawing.Size(75, 23);
+            this.ViewPluginBtn.Size = new System.Drawing.Size(88, 27);
             this.ViewPluginBtn.TabIndex = 6;
             this.ViewPluginBtn.Text = "View...";
             this.ViewPluginBtn.UseVisualStyleBackColor = true;
@@ -160,9 +171,9 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 249);
+            this.ClientSize = new System.Drawing.Size(665, 287);
             this.Controls.Add(this.ViewPluginBtn);
             this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.AddBtn);
@@ -170,6 +181,7 @@
             this.Controls.Add(label1);
             this.Controls.Add(this.PluginPathTxt);
             this.Controls.Add(this.PluginListVw);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VST.NET Sample Host";
