@@ -200,7 +200,8 @@ namespace Jacobi.Vst.Samples.Host
             public int GetCurrentPluginID()
             {
                 _cmdStub.RaisePluginCalled("GetCurrentPluginID()");
-                return _cmdStub.PluginContext.PluginInfo.PluginID;
+                var pluginInfo = _cmdStub.PluginContext.PluginInfo;
+                return (pluginInfo != null) ? pluginInfo.PluginID : 0;
             }
 
             /// <inheritdoc />
