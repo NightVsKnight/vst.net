@@ -28,14 +28,7 @@ namespace Jacobi.Vst.Samples.Host
         /// <returns></returns>
         public new DialogResult ShowDialog(IWin32Window owner)
         {
-            this.Text = PluginCommandStub.Commands.GetEffectName();
-
-            if (PluginCommandStub.Commands.EditorGetRect(out Rectangle wndRect))
-            {
-                this.Size = this.SizeFromClientSize(new Size(wndRect.Width, wndRect.Height));
-                PluginCommandStub.Commands.EditorOpen(this.Handle);
-            }
-
+            PluginCommandStub.Commands.EditorOpen(this.Handle);
             return base.ShowDialog(owner);
         }
 
@@ -46,6 +39,19 @@ namespace Jacobi.Vst.Samples.Host
             if (!e.Cancel)
             {
                 PluginCommandStub.Commands.EditorClose();
+            }
+        }
+
+        private void EditorFrame_Load(object sender, System.EventArgs e)
+        {
+            this.Text = $"{Text} - {PluginCommandStub.Commands.GetEffectName()}";
+
+            if (PluginCommandStub.Commands.EditorGetRect(out Rectangle wndRect))
+            {
+                panel1.Size = wndRect.Size;
+                wndRect.Inflate(10, 10);
+                this.Size = this.SizeFromClientSize(wndRect.Size);
+                PluginCommandStub.Commands.EditorOpen(panel1.Handle);
             }
         }
     }
